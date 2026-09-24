@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="#F2F5F3">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="AI Report Draft"
+            android:textColor="#13231B"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:paddingTop="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Urdu • Roman Urdu • English → Professional English report"
+            android:textColor="#68766F"
+            android:textSize="13sp"
+            android:paddingBottom="12dp"/>
+
+        <!-- API settings -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gemini AI"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#13231B"/>
+
+            <EditText
+                android:id="@+id/apiKey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Paste Gemini API key"
+                android:singleLine="true"
+                android:inputType="textPassword"
+                android:background="@drawable/bg_input"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <Button
+                    android:id="@+id/saveKeyBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Save / Test Key"
+                    android:textAllCaps="false"/>
+
+                <Button
+                    android:id="@+id/getKeyBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="Get Free Key"
+                    android:textAllCaps="false"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/apiStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Model: Gemini 3.8 Flash"
+                android:textSize="12sp"
+                android:textColor="#1D6145"
+                android:paddingTop="7dp"/>
+        </LinearLayout>
+
+        <!-- Details -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Report Details"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#13231B"/>
+
+            <EditText
+                android:id="@+id/region"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="Region"
+                android:text="Sargodha"
+                android:singleLine="true"
+                android:background="@drawable/bg_input"/>
+
+            <EditText
+                android:id="@+id/district"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="District"
+                android:text="Khushab"
+                android:singleLine="true"
+                android:background="@drawable/bg_input"/>
+
+            <EditText
+                android:id="@+id/ps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Police Station (PS)"
+                android:singleLine="true"
+                android:background="@drawable/bg_input"/>
+
+            <Spinner
+                android:id="@+id/reportType"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_input"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <EditText
+                    android:id="@+id/date"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Date"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:background="@drawable/bg_input"/>
+
+                <EditText
+                    android:id="@+id/time"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:hint="Time"
+                    android:focusable="false"
+                    android:clickable="true"
+                    android:background="@drawable/bg_input"/>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/subject"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="Subject / Title (optional — AI can create it)"
+                android:singleLine="true"
+                android:background="@drawable/bg_input"/>
+        </LinearLayout>
+
+        <!-- Raw -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Raw Message"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#13231B"/>
+
+            <Spinner
+                android:id="@+id/voiceLang"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_input"/>
+
+            <Button
+                android:id="@+id/voiceBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="🎙 Voice Input"
+                android:textAllCaps="false"/>
+
+            <EditText
+                android:id="@+id/rawText"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:layout_marginTop="8dp"
+                android:gravity="top|start"
+                android:hint="3–4 lines Urdu, Roman Urdu or English..."
+                android:inputType="textMultiLine|textCapSentences"
+                android:background="@drawable/bg_input"
+                android:padding="10dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AI professional wording add karega, lekin names/counts/actions jaisi substantive facts invent nahi karega."
+                android:textSize="12sp"
+                android:textColor="#68766F"
+                android:paddingTop="7dp"/>
+
+            <Button
+                android:id="@+id/generateBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="✨ Generate AI Report"
+                android:textAllCaps="false"
+                android:backgroundTint="#123B2A"
+                android:textColor="#FFFFFF"/>
+
+            <ProgressBar
+                android:id="@+id/progress"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginTop="8dp"
+                android:indeterminate="true"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="#1D6145"
+                android:paddingTop="7dp"/>
+        </LinearLayout>
+
+        <!-- Output -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_card"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Generated Report"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="#13231B"/>
+
+            <TextView
+                android:id="@+id/output"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="260dp"
+                android:layout_marginTop="10dp"
+                android:text="Your generated report will appear here."
+                android:textIsSelectable="true"
+                android:textColor="#18251F"
+                android:textSize="16sp"
+                android:lineSpacingExtra="4dp"
+                android:background="@drawable/bg_output"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="9dp">
+
+                <Button
+                    android:id="@+id/copyBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Copy"
+                    android:textAllCaps="false"/>
+
+                <Button
+                    android:id="@+id/whatsappBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:text="WhatsApp"
+                    android:textAllCaps="false"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="6dp">
+
+                <Button
+                    android:id="@+id/shareBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Share / Drive"
+                    android:textAllCaps="false"/>
+
+                <Button
+                    android:id="@+id/saveReportBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="6dp"
+                    android:text="Save Report"
+                    android:textAllCaps="false"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/historyBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Saved Reports"
+                android:textAllCaps="false"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Online Gemini AI is used only when Generate/Test is pressed. Check your organization's policy before sending sensitive or restricted information to a third-party AI service."
+            android:textColor="#7A6540"
+            android:textSize="11sp"
+            android:padding="8dp"/>
+
+    </LinearLayout>
+</ScrollView>
